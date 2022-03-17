@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Quicksand:wght@400;500&family=Sansita+Swashed:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/9f145c69b6.js" crossorigin="anonymous"></script>
+    <title>Writer</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>A</h1>
+            <h1>W</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#contact">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-text">
+                <p>
+                    <span class="highlight">Hi!</span> I'm Ann Wanjiku a professional writer
+                </p>
+                <button class="cta">Reach out</button>
+            </div>
+
+        </div>
+        <section id="services">
+            <h1>Our Services</h1>
+            <section class="services-cont">
+                <div class="service">
+                    <i class="fas fa-blog"></i>
+                    <h2>Blog Writing</h2>
+                    <p>
+                        Lolor sit amet consectetur adipisicing elit. Quisquam minima debitis tenetur consequatur neorem ipsum, dmo optio qdolor molestiae ad porro cupiditate necessitatibus, dolorum corrupti ame?
+                    </p>
+                    <button class="to-hire">Hire Me</button>
+                </div>
+                <div class="service">
+                    <i class="fas fa-pen-fancy"></i>
+                    <h2>Article Writing</h2>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur ad cupidit aipisicing elit. Quisquam minima debitis tenetur consuatur nemo optio stiae ad porrote necessitatibus, dolorum corrupti amet?
+                    </p>
+                    <button class="to-hire">Hire Me</button>
+                </div>
+                <div class="service">
+                    <i class="fas fa-user-secret"></i>
+                    <h2>Ghost Writing</h2>
+                    <p>
+                        Lorem ip, dolos umr sit amet consectetur adipisicing elit. Quisquam minima debitis tenetur consequatur e mo op quo dolor molestiae ad porro cupiditate necessitatibus, dolorum corrupti tio.
+                    </p>
+                    <button class="to-hire">Hire Me</button>
+                </div>
+            </section>
+        </section>
+        <section id="contact">
+            <h1>Contacts</h1>
+            <section class="contacts">
+                <form>
+                    <h2>Contact Me</h2>
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div>
+                        <label for="purpose">What do you need?</label>
+                        <div class="options">
+                            <label for="blog">Blog</label>
+                            <input type="radio" name="purpose" id="blog" value="i">
+                            <label for="article">Article</label>
+                            <input type="radio" name="purpose" id="article" value="w">
+                            <label for="ghost">Ghost Writing</label>
+                            <input type="radio" name="purpose" id="ghost" value="g">
+                            <label for="other">Other</label>
+                            <input type="radio" name="purpose" id="other" value="g">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="message">Additional Info</label>
+                        <textarea id="message" cols="30" rows="5" placeholder="Enter additonal info"></textarea>
+                    </div>
+                    <button type="submit" class="submit">Send</button>
+                </form>
+                <!-- <div>
+                    <h2>Other Contacts</h2>
+                    <p><i class="fas fa-envelope"></i> Email</p>
+
+                    <i class="fas fa-phone-alt"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-whatsapp"></i>
+                </div> -->
+            </section>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
