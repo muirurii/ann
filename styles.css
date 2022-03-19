@@ -218,12 +218,19 @@ main h1::after {
 }
 
 .contacts {
-    /* display: grid;
-    grid-template-columns: 3fr 1fr; */
+    padding: 1em 4em;
+}
+
+.contacts>div {
+    padding-top: 2em;
+}
+
+.contacts a {
+    color: var(--pink);
 }
 
 form {
-    padding: 1em 4em;
+    /* padding: 1em 4em; */
 }
 
 form label {
@@ -251,13 +258,18 @@ form label {
     border-bottom: 1px solid var(--pink);
     width: 80%;
     outline: none;
-    transition: 400ms;
+    transition: border 200ms;
 }
 
 #name:focus,
 #email:focus,
 #message:focus {
     border-bottom: 2px solid var(--dark);
+}
+
+#name.invalid-input,
+#email.invalid-input {
+    border-bottom: 2px solid #c70505;
 }
 
 input[type="radio"] {
@@ -282,32 +294,47 @@ input[type="radio"] {
     content: '';
     position: absolute;
     top: 0;
+    left: 0;
     height: 100%;
-    width: 50%;
-    background-color: var(--dark);
+    width: 100%;
     z-index: -1;
-    transition: 300ms;
+    transition: transform 300ms;
 }
 
 .submit::before {
-    left: 0;
+    background-color: var(--dark);
+    transform-origin: top;
 }
 
 .submit::after {
-    right: 0;
+    background-color: var(--gray);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition-delay: 100ms;
 }
 
 .submit:hover::after {
-    transform: translate(30px, -100%);
+    transform: scaleY(1);
 }
 
 .submit:hover::before {
-    transform: translate(-30px, 100%);
+    transform: scaleY(0);
+    transition-timing-function: linear;
 }
 
 .submit:hover {
-    background-color: var(--gray);
     color: var(--dark);
+}
+
+.invalid {
+    color: #c70505;
+    transform: translateY(-0.5em);
+    font-size: .8rem;
+    visibility: hidden;
+}
+
+.invalid.error {
+    visibility: visible;
 }
 
 footer {
@@ -403,6 +430,11 @@ footer h3 {
 address a {
     display: inline-block;
     margin: 0 3px;
+    transition: 300ms ease-in-out;
+}
+
+address a:hover {
+    transform: scale(1.05);
 }
 
 @media(min-width:860px) {

@@ -25,7 +25,7 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="#blogs">Recent Blogs</a></li>
                 <li><a href="#contact">Contacts</a></li>
             </ul>
         </nav>
@@ -70,30 +70,37 @@
                 </div>
             </section>
         </section>
+        <section id="blogs">
+            <h1>Recent Blogs</h1>
+
+        </section>
         <section id="contact">
             <h1>Contacts</h1>
             <section class="contacts">
-                <form>
-                    <h2>Contact Me</h2>
+                <form id="hire-form">
+                    <h2>Hire Me</h2>
                     <div>
                         <label for="name">Name</label>
+                        <p class="name invalid">Name should contain more than three characters</p>
                         <input type="text" id="name" placeholder="Enter your name">
                     </div>
                     <div>
                         <label for="email">Email</label>
+                        <p class="email invalid">Please enter a valid email</p>
                         <input type="email" id="email" placeholder="Enter your email">
                     </div>
                     <div>
                         <label for="purpose">What do you need?</label>
+                        <p class="purpose invalid">Select your purpose</p>
                         <div class="options">
-                            <label for="blog">Blog</label>
                             <input type="radio" name="purpose" id="blog" value="i">
-                            <label for="article">Article</label>
+                            <label for="blog">A blog</label>
                             <input type="radio" name="purpose" id="article" value="w">
-                            <label for="ghost">Ghost Writing</label>
+                            <label for="article">An article</label>
                             <input type="radio" name="purpose" id="ghost" value="g">
-                            <label for="other">Other</label>
+                            <label for="ghost">Ghost Writing</label>
                             <input type="radio" name="purpose" id="other" value="g">
+                            <label for="other">Other service (specify below)</label>
                         </div>
                     </div>
                     <div>
@@ -102,13 +109,16 @@
                     </div>
                     <button type="submit" class="submit">Send</button>
                 </form>
-                <!-- <div>
-                    <h2>Other Contacts</h2>
-                    <i class="fas fa-envelope"></i>
-                    <i class="fas fa-phone-alt"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-whatsapp"></i>
-                </div> -->
+                <div>
+                    <h2>Contact Me</h2>
+                    <address>
+                    <a href=""><i class="fas fa-envelope"></i></a>
+                    <a href=""><i class="fas fa-phone-alt"></i></a>
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-whatsapp"></i></a>
+                </address>
+                </div>
+
             </section>
         </section>
     </main>
