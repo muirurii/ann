@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script src="app.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,10 +17,19 @@
 <body>
     <header>
         <div class="logo">
-            <h1>A</h1>
-            <h1>W</h1>
+            <img src="logo.png" alt="">
         </div>
+        <div class="hamb"></div>
         <nav class="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blogs">Recent Blogs</a></li>
+                <li><a href="#contact">Contacts</a></li>
+            </ul>
+        </nav>
+        <nav class="small-nav">
+            <button class="close-menu">x</button>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -37,7 +45,10 @@
                 <p>
                     <span class="highlight">Hi!</span> I'm Ann Wanjiku a professional writer
                 </p>
-                <button class="cta">Reach out</button>
+                <p class="hero-small">
+                    Lorem, ipsum dolor sit amet consect Beatae ipsa consequatur sed. Lorem ipsum dolor sit.
+                </p>
+                <a href="#contact" class="cta">Reach out</a>
             </div>
 
         </div>
@@ -48,58 +59,76 @@
                     <i class="fas fa-blog"></i>
                     <h2>Blog Writing</h2>
                     <p>
-                        Lolor sit amet consectetur adipisicing elit. Quisquam minima debitis tenetur consequatur neorem ipsum, dmo optio qdolor molestiae ad porro cupiditate necessitatibus, dolorum corrupti ame?
+                        Lolor sit amet consectetur Lorem ipsum dolor sit amet. adipisicing elit. Quisquam minima debitis tenetur consequatur neorem ipsum, dmo optio qdolor molestiae ad porro cupiditate necessitatibus, dolorum corrupti ame?
                     </p>
-                    <button class="to-hire">Hire Me</button>
+                    <a class="to-hire" href="#contact" data-value="blog">Hire Me</a>
                 </div>
                 <div class="service">
                     <i class="fas fa-pen-fancy"></i>
                     <h2>Article Writing</h2>
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur ad cupidit aipisicing elit. Quisquam minima debitis tenetur consuatur nemo optio stiae ad porrote necessitatibus, dolorum corrupti amet?
+                        Lorem ipsum, dolor sit amet consectetur ad cupidit Lorem ipsum dolor sit amet. aipisicing elit. Quisquam minima debitis tenetur consuatur nemo optio stiae ad porrote necessitatibus, dolorum corrupti amet?
                     </p>
-                    <button class="to-hire">Hire Me</button>
+                    <a href="#contact" class="to-hire" data-value="article">Hire Me</a>
                 </div>
                 <div class="service">
                     <i class="fas fa-user-secret"></i>
                     <h2>Ghost Writing</h2>
                     <p>
-                        Lorem ip, dolos umr sit amet consectetur adipisicing elit. Quisquam minima debitis tenetur consequatur e mo op quo dolor molestiae ad porro cupiditate necessitatibus, dolorum corrupti tio.
+                        Lorem ip Lorem ipsum dolor sit amet., dolos umr sit amet consectetur adipisicing elit. Quisquam minima debitis tenetur consequatur e mo op quo dolor molestiae ad porro cupiditate necessitatibus, dolorum corrupti tio.
                     </p>
-                    <button class="to-hire">Hire Me</button>
+                    <a href="#contact" class="to-hire" data-value="ghost">Hire Me</a>
                 </div>
             </section>
         </section>
         <section id="blogs">
             <h1>Recent Blogs</h1>
+            <section class="blogs">
+                <section class="blog">
+                    <div class="blog-title">
+                        <h2>Tips on getting started with online writing</h2>
+                        <p>10 proven facts about online writing</p>
+                        <p class="highlight"><em>>>By Ann</em></p>
+                        <button class="to-blog">Read More</button>
+                    </div>
+                </section>
+                <section class="blog">
+                    <div class="blog-title">
+                        <h2>Tips on getting started with online writing</h2>
+                        <p>10 proven facts about online writing</p>
+                        <p class="highlight"><em>>>By Ann</em></p>
+                        <button class="to-blog">Read More</button>
+                    </div>
+                </section>
+            </section>
 
         </section>
         <section id="contact">
-            <h1>Contacts</h1>
+            <h1>Contact Me</h1>
             <section class="contacts">
                 <form id="hire-form">
                     <h2>Hire Me</h2>
-                    <div>
+                    <div class="name">
                         <label for="name">Name</label>
-                        <p class="name invalid">Name should contain more than three characters</p>
+                        <p class="invalid"><i class="fas fa-exclamation-circle"></i> Name should contain more than three characters</p>
                         <input type="text" id="name" placeholder="Enter your name">
                     </div>
-                    <div>
+                    <div class="email">
                         <label for="email">Email</label>
-                        <p class="email invalid">Please enter a valid email</p>
+                        <p class="invalid"><i class="fas fa-exclamation-circle"></i> Please enter a valid email</p>
                         <input type="email" id="email" placeholder="Enter your email">
                     </div>
-                    <div>
+                    <div class="purpose">
                         <label for="purpose">What do you need?</label>
-                        <p class="purpose invalid">Select your purpose</p>
+                        <p class="invalid"><i class="fas fa-exclamation-circle"></i> Select your purpose</p>
                         <div class="options">
-                            <input type="radio" name="purpose" id="blog" value="i">
+                            <input type="radio" name="purpose" id="blog" value="blog">
                             <label for="blog">A blog</label>
-                            <input type="radio" name="purpose" id="article" value="w">
+                            <input type="radio" name="purpose" id="article" value="article">
                             <label for="article">An article</label>
-                            <input type="radio" name="purpose" id="ghost" value="g">
+                            <input type="radio" name="purpose" id="ghost" value="ghost">
                             <label for="ghost">Ghost Writing</label>
-                            <input type="radio" name="purpose" id="other" value="g">
+                            <input type="radio" name="purpose" id="other" value="other">
                             <label for="other">Other service (specify below)</label>
                         </div>
                     </div>
@@ -110,12 +139,13 @@
                     <button type="submit" class="submit">Send</button>
                 </form>
                 <div>
-                    <h2>Contact Me</h2>
+                    <h2>My contacts</h2>
                     <address>
                     <a href=""><i class="fas fa-envelope"></i></a>
                     <a href=""><i class="fas fa-phone-alt"></i></a>
                     <a href=""><i class="fab fa-instagram"></i></a>
                     <a href=""><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
                 </address>
                 </div>
 
@@ -145,7 +175,7 @@
                 </ol>
             </section>
             <section>
-                <form>
+                <form id="email-form">
                     <h3>Get notified when new blogs are released</h3>
                     <input type="email" id="email-subscribe" placeholder="Enter your email">
                     <button type="submit" id="submit-subscribe">Subscribe</button>
@@ -159,6 +189,7 @@
                 <a href=""><i class="fas fa-phone-alt"></i></a>
                 <a href=""><i class="fab fa-instagram"></i></a>
                 <a href=""><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
             </address>
         </section>
     </footer>

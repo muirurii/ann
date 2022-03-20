@@ -9,41 +9,68 @@ document.querySelectorAll('.main-nav li').forEach(li => {
         }, 320);
     });
 });
+// logo
+document.querySelector('.logo').addEventListener('click', () => {
+    window.scrollTo(0, 0);
+});
+// Mobile Menu
+const hamb = document.querySelector('.hamb');
+const menu = document.querySelector('.small-nav');
+const closeBtn = document.querySelector('.close-menu');
+const smallNav = document.querySelector('.small-nav');
+
+const setMenu = () => {
+    if (hamb.classList.contains('hide')) {
+        smallNav.classList.remove('show');
+        hamb.classList.remove('hide');
+    } else {
+        smallNav.classList.add('show');
+        hamb.classList.add('hide');
+    }
+}
+
+hamb.addEventListener('click', setMenu);
+closeBtn.addEventListener('click', setMenu);
+smallNav.querySelectorAll('li').forEach(li => {
+    li.addEventListener('click', setMenu);
+})
+
+// Service buttons
+document.querySelectorAll('.to-hire').forEach(b => {
+    b.addEventListener('click', e => {
+        const value = e.target.getAttribute('data-value');
+        document.querySelector(`input[value=${value}]`).checked = true;
+    });
+});
+
 
 //Hire form
 const nameField = document.querySelector('#name');
 const emailField = document.querySelector('#email');
-const purposeField = document.querySelector('#purpose');
+const serviceOptions = document.querySelectorAll('input[type="radio"]');
+
+// Validators
 
 const nameValidator = element => {
-    console.log(element.value.trim().length)
-        // element.value.trim().length < 3 ? false : true
-    if (element.value.trim().length < 3) {
-        return false;
-    } else {
-        return true;
-    }
+    return element.value.trim().length < 3 ? false : true;
 }
 
 const emailValidator = element => {
     const regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    // !regex.test(element.value) ? false : true;
-    if (!regex.test(element.value)) {
-        return false;
-    } else {
-        return true;
-    }
+    return !regex.test(element.value) ? false : true;
 }
 
-const validator = (element, errorClass, elementValidator) => {
+const purposeValidator = elements => {
+    return Array.from(elements).find(f => f.checked);
+}
+
+
+const validator = (element, fieldClass, elementValidator) => {
     const isValid = elementValidator(element);
-    console.log(isValid)
     if (!isValid) {
-        document.querySelector(`.${errorClass}`).classList.add('error');
-        element.classList.add('invalid-input');
+        document.querySelector(`.${fieldClass}`).classList.add('error');
     } else {
-        document.querySelector(`.${errorClass}`).classList.remove('error');
-        element.classList.remove('invalid-input');
+        document.querySelector(`.${fieldClass}`).classList.remove('error');
     }
 }
 
@@ -51,5 +78,11 @@ const validator = (element, errorClass, elementValidator) => {
 document.querySelector('#hire-form').addEventListener('submit', e => {
     e.preventDefault();
     validator(nameField, 'name', nameValidator);
-    validator(emailField, 'email', emailValidator)
+    validator(emailField, 'email', emailValidator);
+    validator(serviceOptions, 'purpose', purposeValidator);
+});
+
+// EmailForm 
+document.querySelector('#email-form').addEventListener('submit', e => {
+    e.preventDefault();
 });

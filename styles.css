@@ -12,24 +12,16 @@
 :root {
     --gray: #808080;
     --lightGray: #ccc;
-    --dark: rgb(0, 2, 24);
+    --fadeGray: #918787b7;
+    --dark: #000218;
     --pink: #443800;
+    --error: #c70505;
     font-family: 'Poppins', sans-serif;
 }
 
 html {
     scroll-behavior: smooth;
-}
-
-.logo {
-    font-family: 'Sansita Swashed', cursive;
-    line-height: .8em;
-    color: var(--dark);
-}
-
-.logo h1:last-child {
-    padding-left: .6em;
-    color: var(--pink);
+    overflow-x: hidden;
 }
 
 ul {
@@ -77,8 +69,88 @@ header {
     padding-left: 3em;
 }
 
+.logo img {
+    height: 78px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
 .main-nav {
     display: none;
+}
+
+.hamb {
+    background: var(--dark);
+    width: 30px;
+    height: 4px;
+    position: absolute;
+    right: 2em;
+    bottom: 1em;
+    cursor: pointer;
+    display: block;
+}
+
+.hamb.hide {
+    display: none;
+}
+
+.hamb::after,
+.hamb::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+}
+
+.hamb::after {
+    top: -6px;
+}
+
+.hamb::before {
+    bottom: -6px;
+}
+
+.small-nav {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    padding-left: 2em;
+    background-color: var(--gray);
+    transition: 400ms;
+    z-index: -2;
+    clip-path: polygon(100% 0, 100% 0, 0 0, 0 0);
+}
+
+.small-nav.show {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+}
+
+.small-nav li {
+    padding: .5em 0;
+    color: var(--dark);
+    font-size: .8rem;
+}
+
+.small-nav a {
+    display: block;
+}
+
+nav li:hover {
+    transform: translateY(1px);
+    opacity: .9;
+    color: #fff;
+}
+
+.close-menu {
+    color: var(--error);
+    background: transparent;
+    position: absolute;
+    top: 0em;
+    right: 2em;
+    font-size: 1rem;
+    z-index: 1;
 }
 
 main>section {
@@ -87,7 +159,7 @@ main>section {
 
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 120vh;
 }
 
 .hero-text,
@@ -105,7 +177,7 @@ main>section {
 }
 
 .hero-text {
-    background-color: #918787b7;
+    background-color: var(--fadeGray);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -115,11 +187,17 @@ main>section {
     color: var(--dark);
 }
 
+.hero-small {
+    font-size: 2rem;
+    font-family: 'QuickSand', serif;
+}
+
 .highlight {
     color: var(--pink);
 }
 
 .cta {
+    font-size: .8rem;
     padding: 1em 2em;
     border-radius: 1px;
     display: block;
@@ -157,10 +235,6 @@ main h1::after {
 
 /* services */
 
-#services {
-    /* height: 140vh; */
-}
-
 .services-cont {
     display: flex;
     justify-content: space-around;
@@ -171,11 +245,10 @@ main h1::after {
 .service {
     min-height: 320px;
     width: 320px;
+    margin-bottom: 2em;
     border-radius: 4px;
     background-color: var(--lightGray);
     border: 1px solid var(--lightGray);
-    cursor: pointer;
-    overflow: hidden;
 }
 
 .service h2 {
@@ -200,20 +273,55 @@ main h1::after {
     font-size: .94rem;
     font-family: 'QuickSand', serif;
     font-weight: 500;
-    /* font-family: 'Open Sans', serif; */
 }
 
-.to-hire {
+.to-hire,
+.to-blog {
+    display: inline-block;
+    font-size: .8rem;
     padding: .8em 1.2em;
     margin: 0 0 1em 2em;
     background-color: var(--dark);
     border-radius: 3px;
     color: #fff;
-    transform: translateY(100px);
-    transition: 500ms ease-in-out;
+    transition: 300ms ease-in-out;
 }
 
-.service:hover .to-hire {
+.to-hire:hover,
+.to-blog:hover {
+    color: var(--dark);
+    background-color: var(--gray);
+}
+
+.blog {
+    height: 400px;
+    background-color: var(--fadeGray);
+    background-image: url(https://images.pexels.com/photos/265152/pexels-photo-265152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-size: 100% 100%;
+    background-blend-mode: darken;
+    margin: 2em;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.blog-title {
+    background-color: var(--dark);
+    color: #fff;
+    padding: 1.5em 1em;
+}
+
+.to-blog {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+}
+
+.to-blog {
+    transform: translateY(100px);
+}
+
+.blog:hover .to-blog {
     transform: translateY(0px);
 }
 
@@ -229,8 +337,17 @@ main h1::after {
     color: var(--pink);
 }
 
-form {
-    /* padding: 1em 4em; */
+.contacts h2 {
+    position: relative;
+}
+
+.contacts h2::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    height: 100%;
+    width: 3px;
+    background-color: var(--pink);
 }
 
 form label {
@@ -267,9 +384,9 @@ form label {
     border-bottom: 2px solid var(--dark);
 }
 
-#name.invalid-input,
-#email.invalid-input {
-    border-bottom: 2px solid #c70505;
+.error #name,
+.error #email {
+    border-bottom: 2px solid var(--error);
 }
 
 input[type="radio"] {
@@ -327,14 +444,18 @@ input[type="radio"] {
 }
 
 .invalid {
-    color: #c70505;
+    color: var(--error);
     transform: translateY(-0.5em);
     font-size: .8rem;
     visibility: hidden;
 }
 
-.invalid.error {
+.error .invalid {
     visibility: visible;
+}
+
+.contacts address {
+    padding: 2em 0;
 }
 
 footer {
@@ -346,15 +467,11 @@ footer h3 {
     margin-bottom: .8em;
 }
 
-.upper-footer {
+
+/* .upper-footer {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
     grid-gap: 1em;
-}
-
-
-/* .upper-footer section {
-    padding-left: 2em;
 } */
 
 .upper-footer ul,
@@ -398,7 +515,7 @@ footer h3 {
 
 #email-subscribe {
     height: 30px;
-    width: 80%;
+    width: 60%;
     padding-left: 1em;
     border: 1px solid var(--pink);
     border-radius: 3px;
@@ -441,12 +558,29 @@ address a:hover {
     .hero-text {
         padding: 0 3em;
     }
+    .upper-footer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1em;
+    }
+}
+
+@media(min-width:1000px) {
+    .upper-footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
+        grid-gap: 1em;
+    }
 }
 
 @media(min-width:600px) {
     header {
         justify-content: space-around;
         padding-left: 0;
+    }
+    .small-nav,
+    .hamb {
+        display: none;
     }
     .main-nav {
         display: block;
@@ -466,5 +600,12 @@ address a:hover {
     .main-nav li:hover {
         transform: translateY(1px);
         opacity: .9;
+    }
+    .hero {
+        min-height: 100vh;
+    }
+    .blogs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
