@@ -14,7 +14,7 @@
     --lightGray: #ccc;
     --fadeGray: #918787b7;
     --dark: #000218;
-    --pink: #443800;
+    --brown: #443800;
     --error: #c70505;
     font-family: 'Poppins', sans-serif;
 }
@@ -137,10 +137,29 @@ header {
     display: block;
 }
 
-nav li:hover {
-    transform: translateY(1px);
-    opacity: .9;
-    color: #fff;
+nav li.active {
+    position: relative;
+}
+
+nav li::after,
+main h1::after {
+    position: absolute;
+    content: '';
+    background: linear-gradient(to left, var(--brown), transparent);
+    height: 2px;
+    border-radius: 2px;
+    right: 0;
+}
+
+nav li::after {
+    transition: 300ms;
+    transform: scaleX(0);
+    bottom: 0%;
+    width: 100%;
+}
+
+li.active::after {
+    transform: scaleX(1);
 }
 
 .close-menu {
@@ -193,7 +212,7 @@ main>section {
 }
 
 .highlight {
-    color: var(--pink);
+    color: var(--brown);
 }
 
 .cta {
@@ -222,14 +241,8 @@ main h1 {
 }
 
 main h1::after {
-    position: absolute;
-    content: '';
-    background: linear-gradient(to left, var(--pink), transparent);
-    height: 2px;
     width: calc(100% - 1em);
-    border-radius: 2px;
     bottom: 1em;
-    right: 0;
 }
 
 
@@ -253,7 +266,7 @@ main h1::after {
 
 .service h2 {
     text-align: center;
-    color: var(--pink);
+    color: var(--brown);
     font-size: 1.3rem;
 }
 
@@ -264,7 +277,7 @@ main h1::after {
     padding: 1em;
     border-radius: 50%;
     background-color: var(--gray);
-    color: var(--pink);
+    color: var(--brown);
 }
 
 .service p {
@@ -334,7 +347,7 @@ main h1::after {
 }
 
 .contacts a {
-    color: var(--pink);
+    color: var(--brown);
 }
 
 .contacts h2 {
@@ -347,7 +360,7 @@ main h1::after {
     left: -4px;
     height: 100%;
     width: 3px;
-    background-color: var(--pink);
+    background-color: var(--brown);
 }
 
 form label {
@@ -372,7 +385,7 @@ form label {
 #email,
 #message {
     border: none;
-    border-bottom: 1px solid var(--pink);
+    border-bottom: 1px solid var(--brown);
     width: 80%;
     outline: none;
     transition: border 200ms;
@@ -390,7 +403,7 @@ form label {
 }
 
 input[type="radio"] {
-    accent-color: var(--pink);
+    accent-color: var(--brown);
     cursor: pointer;
 }
 
@@ -504,7 +517,7 @@ footer h3 {
     transform: translateY(-50%);
     width: 10px;
     height: 10px;
-    background-color: var(--pink);
+    background-color: var(--brown);
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     transition: transform 400ms;
 }
@@ -517,7 +530,7 @@ footer h3 {
     height: 30px;
     width: 60%;
     padding-left: 1em;
-    border: 1px solid var(--pink);
+    border: 1px solid var(--brown);
     border-radius: 3px;
     outline: none;
 }
@@ -526,7 +539,7 @@ footer h3 {
     display: block;
     margin-top: 1em;
     padding: 0.8em 4em;
-    background-color: var(--pink);
+    background-color: var(--brown);
     color: var(--lightGray);
     border-radius: 50px;
     transition: 300ms;
@@ -538,7 +551,7 @@ footer h3 {
 
 .lower-footer {
     border-top: 1px solid var(--dark);
-    color: var(--pink);
+    color: var(--brown);
     margin-top: 1em;
     display: flex;
     justify-content: space-around;

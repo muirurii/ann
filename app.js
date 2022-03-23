@@ -3,9 +3,9 @@ document.querySelectorAll('.main-nav li').forEach(li => {
     li.addEventListener('mouseout', () => {
         let timeout;
         clearTimeout(timeout);
-        li.className = "slide";
+        li.classList.add('slide');
         timeout = setTimeout(() => {
-            li.className = "";
+            li.classList.remove('slide');
         }, 320);
     });
 });
@@ -86,3 +86,20 @@ document.querySelector('#hire-form').addEventListener('submit', e => {
 document.querySelector('#email-form').addEventListener('submit', e => {
     e.preventDefault();
 });
+
+// Scroll Observer
+
+const sections = document.querySelectorAll('.observe');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('nav li').forEach(li => li.classList.remove('active'));
+            document.querySelector(`nav a[href*="${entry.target.id}"]`).parentElement.classList.add('active');
+        }
+    });
+}, {
+    threshold: 0.5
+});
+
+sections.forEach(s => observer.observe(s));
