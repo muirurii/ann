@@ -1,3 +1,9 @@
+// Loader
+window.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.loader').classList.add('loaded');
+    document.body.classList.add('loaded');
+})
+
 // Navlinks bounce effect
 document.querySelectorAll('.main-nav li').forEach(li => {
     li.addEventListener('mouseout', () => {
@@ -33,7 +39,23 @@ hamb.addEventListener('click', setMenu);
 closeBtn.addEventListener('click', setMenu);
 smallNav.querySelectorAll('li').forEach(li => {
     li.addEventListener('click', setMenu);
-})
+});
+
+// service cards
+
+const cards = document.querySelectorAll('.service');
+
+const cardObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.classList.add('service-animate');
+        }
+    })
+}, {
+    threshold: 0.3,
+});
+
+cards.forEach(c => cardObserver.observe(c));
 
 // Service buttons
 document.querySelectorAll('.to-hire').forEach(b => {
@@ -49,21 +71,25 @@ const nameField = document.querySelector('#name');
 const emailField = document.querySelector('#email');
 const serviceOptions = document.querySelectorAll('input[type="radio"]');
 
+// Highlight option
+serviceOptions.forEach(opt => {
+    opt.addEventListener('click', e => {
+        const prev = document.querySelector('.options .highlight');
+        prev && prev.classList.remove('highlight');
+        e.target.parentElement.classList.add('highlight');
+    });
+});
+
 // Validators
 
-const nameValidator = element => {
-    return element.value.trim().length < 3 ? false : true;
-}
+const nameValidator = element => element.value.trim().length < 3 ? false : true;
 
 const emailValidator = element => {
     const regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return !regex.test(element.value) ? false : true;
 }
 
-const purposeValidator = elements => {
-    return Array.from(elements).find(f => f.checked);
-}
-
+const purposeValidator = elements => Array.from(elements).find(option => option.checked);
 
 const validator = (element, fieldClass, elementValidator) => {
     const isValid = elementValidator(element);

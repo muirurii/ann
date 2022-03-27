@@ -15,6 +15,9 @@
 </head>
 
 <body>
+    <div class="loader center">
+        <div></div>
+    </div>
     <header>
         <div class="logo">
             <img src="logo.png" alt="">
@@ -23,6 +26,7 @@
         <nav class="main-nav">
             <ul>
                 <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#blogs">Recent Blogs</a></li>
                 <li><a href="#contact">Contacts</a></li>
@@ -32,6 +36,7 @@
             <button class="close-menu">x</button>
             <ul>
                 <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#blogs">Recent Blogs</a></li>
                 <li><a href="#contact">Contacts</a></li>
@@ -52,6 +57,40 @@
             </div>
 
         </div>
+        <section id="about" class="observe">
+            <h1>About</h1>
+            <section class="about">
+                <section class="block">
+                    <article>
+                        <h2 class="sub-heading">How It Works</h2>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate minus neque laboriosam praesentium alias aliquam excepturi non quidem assumenda sunt. Lorem ipsum dolor sit amet. corporis libero sit labore dignissimos. Voluptates totam perferendis
+                            maxime! Quidem. Lorem ipsum dolor sit.
+                        </p>
+                    </article>
+
+                    <div>
+                        <img src="https://images.pexels.com/photos/3278757/pexels-photo-3278757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="IMAGE">
+                    </div>
+                </section>
+                <section class="block">
+                    <article>
+                        <h2 class="sub-heading">Writing Redesigned</h2>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate minus neque la Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, omnis. boriosam praesentium alias aliquam excepturi non quidem assumenda sunt, corporis libero sit labore
+                            dignissimos. Voluptates totam perferendis maxime! Quidem.
+                        </p>
+                    </article>
+                    <div>
+                        <img src="https://images.pexels.com/photos/3278757/pexels-photo-3278757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="IMAGE">
+                    </div>
+                </section>
+            </section>
+            <section class="quote">
+                <h2>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nobis ipsum atque nemo. "</h2>
+                <p>Socrates</p>
+            </section>
+        </section>
         <section id="services" class="observe">
             <h1>Our Services</h1>
             <section class="services-cont">
@@ -107,10 +146,10 @@
             <h1>Contact Me</h1>
             <section class="contacts">
                 <form id="hire-form">
-                    <h2>Hire Me</h2>
+                    <h2 class="sub-heading">Hire Me</h2>
                     <div class="name">
                         <label for="name">Name</label>
-                        <p class="invalid"><i class="fas fa-exclamation-circle"></i> Name should contain more than three characters</p>
+                        <p class="invalid"><i class="fas fa-exclamation-circle"></i> Name should contain three or more characters</p>
                         <input type="text" id="name" placeholder="Enter your name">
                     </div>
                     <div class="email">
@@ -122,14 +161,23 @@
                         <label for="purpose">What do you need?</label>
                         <p class="invalid"><i class="fas fa-exclamation-circle"></i> Select your purpose</p>
                         <div class="options">
-                            <input type="radio" name="purpose" id="blog" value="blog">
-                            <label for="blog">A blog</label>
-                            <input type="radio" name="purpose" id="article" value="article">
-                            <label for="article">An article</label>
-                            <input type="radio" name="purpose" id="ghost" value="ghost">
-                            <label for="ghost">Ghost Writing</label>
-                            <input type="radio" name="purpose" id="other" value="other">
-                            <label for="other">Other service (specify below)</label>
+                            <div>
+                                <input type="radio" name="purpose" id="blog" value="blog">
+                                <label for="blog">A blog</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="purpose" id="article" value="article">
+                                <label for="article">An article</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="purpose" id="ghost" value="ghost">
+                                <label for="ghost">Ghost Writing</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="purpose" id="other" value="other">
+                                <label for="other">Other service (specify below)</label>
+                            </div>
+
                         </div>
                     </div>
                     <div>
@@ -139,7 +187,7 @@
                     <button type="submit" class="submit">Send</button>
                 </form>
                 <div>
-                    <h2>My contacts</h2>
+                    <h2 class="sub-heading">My contacts</h2>
                     <address>
                     <a href=""><i class="fas fa-envelope"></i></a>
                     <a href=""><i class="fas fa-phone-alt"></i></a>
