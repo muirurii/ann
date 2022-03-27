@@ -41,14 +41,31 @@ smallNav.querySelectorAll('li').forEach(li => {
     li.addEventListener('click', setMenu);
 });
 
+// Subheading animation
+const subHeadings = document.querySelectorAll('.sub-heading');
+
+const subHeadingObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('reveal');
+            subHeadingObserver.unobserve(entry.target);
+        }
+    })
+}, {
+    threshold: 1
+});
+
+subHeadings.forEach(h => subHeadingObserver.observe(h));
+
 // service cards
 
 const cards = document.querySelectorAll('.service');
 
 const cardObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-        if (e.isIntersecting) {
-            e.target.classList.add('service-animate');
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            cardObserver.unobserve(entry.target);
+            entry.target.classList.add('service-animate');
         }
     })
 }, {
@@ -117,7 +134,7 @@ document.querySelector('#email-form').addEventListener('submit', e => {
 
 const sections = document.querySelectorAll('.observe');
 
-const observer = new IntersectionObserver(entries => {
+const sectionsObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             document.querySelectorAll('nav li').forEach(li => li.classList.remove('active'));
@@ -125,7 +142,7 @@ const observer = new IntersectionObserver(entries => {
         }
     });
 }, {
-    threshold: 0.5
+    threshold: 0.3
 });
 
-sections.forEach(s => observer.observe(s));
+sections.forEach(s => sectionsObserver.observe(s));
